@@ -2,8 +2,13 @@
     <p>Counter is: {{ counter }}</p>
 </template>
 
+
 <script>
-    export default {
-        props: ['counter']
-    }
+  export default {
+  	computed: {
+  		counter () {
+  			return this.$store.state.counter
+  		}
+  	}
+  }
 </script>
