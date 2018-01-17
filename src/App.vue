@@ -6,6 +6,7 @@
                 <app-result :counter="counter"></app-result>
                 <hr>
                 <app-counter @updated="counter += $event"></app-counter>
+                <app-another-counter></app-another-counter>
             </div>
         </div>
     </div>
@@ -14,6 +15,7 @@
 <script>
     import Counter from './components/Counter.vue';
     import Result from './components/Result.vue';
+    import AnotherCounter from './components/anotherCounter.vue'
 
     export default {
         data() {
@@ -24,6 +26,7 @@
         components: {
             appCounter: Counter,
             appResult: Result,
+            appAnotherCounter: AnotherCounter
         }
     }
 </script>
