@@ -7,6 +7,9 @@
                 <hr>
                 <app-counter @updated="counter += $event"></app-counter>
                 <app-another-counter></app-another-counter>
+                </br>
+                <input type="text" :value="value" @input="updateValue">
+                <p>{{ value }}</p>
             </div>
         </div>
     </div>
@@ -21,6 +24,16 @@
         data() {
             return {
                 counter: 0
+            }
+        },
+        computed: {
+            value(){
+                return this.$store.getters.getValue
+            }
+        },
+        methods: {
+            updateValue(event)  {
+                this.$store.dispatch('changeValue', event.target.value)
             }
         },
         components: {
