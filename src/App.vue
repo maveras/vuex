@@ -8,7 +8,7 @@
                 <app-counter @updated="counter += $event"></app-counter>
                 <app-another-counter></app-another-counter>
                 </br>
-                <input type="text" :value="value" @input="updateValue">
+                <input type="text" v-model="value">
                 <p>{{ value }}</p>
             </div>
         </div>
@@ -27,8 +27,13 @@
             }
         },
         computed: {
-            value(){
-                return this.$store.getters.getValue
+            value:{
+                get () {
+                    return this.$store.getters.getValue
+                },
+                set (value) {
+                    this.$store.dispatch('changeValue', value)
+                }
             }
         },
         methods: {
